@@ -1,0 +1,63 @@
+{
+  "name": "timestamp-comment",
+  "displayName": "Signed Timestamp Comment",
+  "publisher": "xaqui",
+  "description": "Generate a comment with signature and time stamp",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xaqui/timestamp-comment-extension"
+  },
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "timestamp-comment.signedTimestamp",
+        "title": "Insert Signed Timestamp"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Comment Extension",
+      "properties": {
+        "commentExtension.name": {
+          "type": "string",
+          "default": "YourName",
+          "description": "Your name to be included in the comments."
+        },
+        "commentExtension.displayTimezone": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to display the timezone in the comments."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.84.0",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2",
+    "@vscode/test-electron": "^2.3.6"
+  }
+}
